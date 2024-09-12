@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parking Payment</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Parking Information</h1>
+      <div class="container">
+      <form id="parking-form">
+        <label for="make">Please enter your Car Make, Model, Liscense Plate, and Year</label>
+        <input type="text" id="make" name="make" value="Make" onfocus="if (this.value == 'Make') {this.value=''}" required />
+        <input type="model" id="model" name="model" value="Model" onfocus="if (this.value == 'Model') {this.value=''}" required />
+        <input type="text" id="plate" name="plate" value="Liscense Plate" onfocus="if (this.value == 'Liscense Plate') {this.value=''}" required />
+
+        <div class="custom-select">
+        <select id='date-dropdown'>
+        </select>
+        <script>
+            let dateDropdown = document.getElementById('date-dropdown'); 
+                 
+            let currentYear = new Date().getFullYear();    
+            let earliestYear = 1970;     
+            while (currentYear >= earliestYear) {      
+              let dateOption = document.createElement('option');          
+              dateOption.text = currentYear;      
+              dateOption.value = currentYear;        
+              dateDropdown.add(dateOption);      
+              currentYear -= 1;    
+            }
+          </script>
+          </div>
+          <div class="custom-select">
+            <select id="duration" name="duration" class="custom-select" required>
+              <option value="">Select duration</option>
+              <option value="1-8">1-8 hours</option>
+              <option value="8-24">8-24 hours</option>
+            </select>
+            <div class="select-arrow"></div>
+          </div>
+        </div>
+
+        <div class="container">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+    </div>
+
+        <div class="custom-select">
+          <select id="duration" name="duration" class="custom-select" required>
+            <option value="">Select duration</option>
+            <option value="1-8">1-8 hours</option>
+            <option value="8-24">8-24 hours</option>
+          </select>
+          <div class="select-arrow"></div>
+        </div>
+        <div class="container">
+        <div id="card-element" class="card">
+          <!-- A Stripe Element will be inserted here. -->
+        </div>
+        <button id="submit" class="button">Pay</button>
+    </div>
+        <div id="error-message"></div>
+      </form>
+
+      <div class="info">
+        <p>PAYMENT PROCESSED THROUGH STRIPE. YOU WILL RECIEVE E-MAIL CONFIRMATION IF THE PAYMENT IS PROCESSED.</p>
+      </div>
+    </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="script.js"></script>
+<!--
+    <div class="container">
+      <h1>Select Your Parking Option</h1>
+      <div class="button-container">
+        <a
+          href="#"
+          class="button"
+          id="submit"
+          data-amount="10"
+          data-description="1-8 hours"
+        >
+          $10 Parking
+          <div class="description">1-8 hours</div>
+        </a>
+        <a
+          href="#"
+          class="button"
+          data-amount="20"
+          data-description="8-24 hours"
+        >
+          $20 Parking
+          <div class="description">8-24 hours</div>
+        </a>
+      </div>
+      <div class="info">
+        <p>Select a parking option to proceed with payment.</p>
+        <p>
+          <span>Note:</span> Prices are subject to change based on availability
+          and location.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
