@@ -5,7 +5,7 @@ const stripe = require('stripe')(
 ); // Replace with your Stripe secret key
 
 const app = express();
-const PORT = process.env.PORT || 80;
+const PORT = 3000; //process.env.PORT || 80;
 
 // Middleware
 app.use(bodyParser.json());
@@ -31,7 +31,7 @@ app.post('/charge', async (req, res) => {
 
 // Default route to serve index.html
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index2.html');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 app.listen(PORT, () => {
