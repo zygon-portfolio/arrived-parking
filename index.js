@@ -5,7 +5,7 @@ const stripe = require('stripe')(
 ); // Replace with your Stripe secret key
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 80;
 
 // Middleware
 app.use(bodyParser.json());
