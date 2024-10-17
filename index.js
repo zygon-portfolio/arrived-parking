@@ -5,7 +5,7 @@ const stripe = require('stripe')(
 ); // Replace with your Stripe secret key
 
 const app = express();
-const port = process.env.PORT || 3000; //process.env.PORT || 80;
+const PORT = process.env.PORT || 3000; //process.env.PORT || 80;
 
 // Middleware
 app.use(bodyParser.json());
@@ -17,7 +17,7 @@ app.post('/charge', async (req, res) => {
 
   try {
     const charge = await stripe.charges.create({
-      amount: amount * 100, // Amount in cents
+      amount: 1 * 100, // Amount in cents
       currency: 'usd',
       description: 'Parking Fee',
       source: token,
@@ -31,7 +31,7 @@ app.post('/charge', async (req, res) => {
 
 // Default route to serve index.html
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  res.sendFile(__dirname + '/public/index N.html');
 });
 
 app.listen(PORT, () => {

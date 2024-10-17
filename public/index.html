@@ -1,27 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+  <div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">Locations</a>
+  </div>
   <head>
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parking Payment</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+</p>
+  <img>
     <div class="container">
-      <h1>Parking Information</h1>
+      <div class="wrapper">
+        
+        <svg>
+          <text x="40%" y="27%" dy=".35em" text-anchor="middle">
+            
+          </text>
+          <text x="60%" y="75%" dy=".35em" text-anchor="middle">
+            
+          </text>
+        </svg>
+      </div>
+      
+      
       <div class="container">
+        <div class="extra-pad">
       <form id="parking-form">
-        <label for="make">Please enter your E-mail for confirmation</label>
-        <input type="text" id="email" name="email" value="Email" onfocus="if (this.value == 'Email') {this.value=''}" required /> 
-        <label for="make">Please enter your Car Make, Model, Liscense Plate, and Year</label>
+         
+        <body>
+
+          <a class="note">Enter Personal Information Below: </a>
+          <div class="custom_input">
+            
+            <input class="input" type="text" placeholder="Email">
+        </div>
+
+        <div class="custom_input">
+          <input class="input" type="text" placeholder="Make">
+          <input class="input" type="text" placeholder="Model">
+    </div>
+    <div class="custom_input">
+      <input class="input" type="text" placeholder="Liscense Plate">
+      <div class="custom-select2">
+        <select id="date-dropdown">
+            <option>Year</option>
+        </select>
+        <div class="select-arrow"></div>
+    </div>
+    
+  </div>
+  <!--
+        <input type="text" id="email" name="email" value="Email" onfocus="if (this.value == 'Email') {this.value=''}" required />
         <input type="text" id="make" name="make" value="Make" onfocus="if (this.value == 'Make') {this.value=''}" required />
         <input type="model" id="model" name="model" value="Model" onfocus="if (this.value == 'Model') {this.value=''}" required />
         <input type="text" id="plate" name="plate" value="Liscense Plate" onfocus="if (this.value == 'Liscense Plate') {this.value=''}" required />
-        
+        -->
         <!--<div class="container">-->
-        <div class="custom-select">
-        <select id='date-dropdown'>
-        </select>
+
+
         <script>
             let dateDropdown = document.getElementById('date-dropdown'); 
                  
@@ -35,15 +77,9 @@
               currentYear -= 1;    
             }
           </script>
-
-<!-- A Stripe Element will be inserted here. 
-<div class="slider-container">
-  <div class="slider-label">Select Price:</div>
-  <input type="range" min="0" max="1000" value="500" class="slider" id="priceSlider">
-  <div class="value-display" id="priceValue">$500</div>
-</div>
-
+          
 <script>
+  
   const slider = document.getElementById('priceSlider');
   const priceDisplay = document.getElementById('priceValue');
 
@@ -52,16 +88,27 @@
   }
 </script>
 
-
-    <button id="submit" class="button">Rate 1</button>
-    <button id="submit" class="button">Rate 2</button>
-    <button id="submit" class="button">Rate 3</button>
+   
         
-        -->
       </div>
-      <p>20$ parking will be valid until <strong>6:00 pm</strong> on
+      
+      
+      <p class="date">Valid for 
       <span  class="bold" id="currentDate">Loading date...</span>
+      until
+      <a class="bold" id="datetime"></a>
     </p>
+    
+
+<script>
+  // Get current date and time
+  var now = new Date();
+  now.setHours(now.getHours() + 2);
+  var datetime = now.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+
+  // Insert date and time into HTML
+  document.getElementById("datetime").innerHTML = datetime;
+</script>
     </div>
         <div class="container">
           <div id="card-element" class="card">
@@ -76,6 +123,9 @@
         <div id="error-message"></div>
     </div>
     
+    <script>
+      //alert('Welcome to my web page!');
+  </script>
 
   <script>
       function formatDate(date) {
@@ -85,7 +135,7 @@
 
       document.addEventListener('DOMContentLoaded', function() {
           const today = new Date();
-          today.setDate(today.getDate() + 1);
+          today.setDate(today.getDate());//add +1 for next day
           const dateDisplay = document.getElementById('currentDate');
           dateDisplay.textContent = formatDate(today);
       });
@@ -93,8 +143,10 @@
       </form>
 
       <div class="info">
-        <p>PAYMENT PROCESSED THROUGH STRIPE. YOU WILL RECIEVE E-MAIL CONFIRMATION IF THE PAYMENT IS PROCESSED.</p>
+        <img src="secure.png"
+        width="200px"></img>
       </div>
+    </div>
     <!--</div>-->
 
     <script src="https://js.stripe.com/v3/"></script>
